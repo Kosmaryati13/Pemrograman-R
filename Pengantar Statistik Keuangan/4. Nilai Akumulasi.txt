@@ -1,0 +1,22 @@
+setwd("E:\\Sekolah\\Kuliah\\Semester 6\\Pengantar Statistik Keuangan")
+Modifikasi fungsi sehingga tercipta suatu fungsi yang pilihannya menginput (3 jenis bunga)
+#mengandung switch
+PilihBunga<- function(num, k,t,i,m=TRUE)
+  switch(num, 
+         satu = {
+           Tunggal = k*(1+(i*t))
+           cat("Nilai Akumulasi Bunga Tunggal",Tunggal)
+         },
+         dua = {
+           MajemukNominal = k*(1+(i/m))^(m*t)
+           cat("Nilai Akumulasi Bunga majemuk Nominal",MajemukNominal)
+         },
+         tiga = {
+           MajemukKontinu = k*(exp(i*t))
+           cat("Nilai Akumulasi Bunga Majemuk Kontinu",MajemukKontinu)
+         }
+  )
+
+PilihBunga("satu",2000,4,0.08)
+PilihBunga("dua",2000,4,0.08,m=1)
+PilihBunga("tiga",2000,4,0.08,m=1)

@@ -1,0 +1,22 @@
+setwd("E:\\Sekolah\\Kuliah\\Semester 6\\Pengantar Statistik Keuangan")
+
+##Membuat Function Harga Obligasi (P)
+#f=nilai nominal; r=kupon; i=tingkat yield; n=banyaknya waktu pembayaran hingga jatuh tempo
+obligasi<-function(f,r,i,n){
+  v=1/(1+i)
+  P=f*r*((1-v^n)/i)+f*(v^n)
+  return(P)
+}
+
+
+##Membuat Function Harga Obligasi (P) (Untuk m kali)
+#f=nilai nominal; r=kupon; i=tingkat yield; n=banyaknya waktu pembayaran hingga jatuh tempo
+obligasi<-function(f,r,i,m,t){
+  r_bintang=r/m
+  i_bintang=i/m
+  n=t*m
+  v=1/(1+i_bintang)
+  an=(1-(v^n))/i_bintang
+  P=f*r*an+f*(v^n)
+  return(P)
+}
